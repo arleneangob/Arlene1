@@ -1,0 +1,356 @@
+<html><head><base href="." />
+<title>Elegant Login Page</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #9370DB, #663399);
+}
+
+.login-container {
+    background: linear-gradient(135deg, #E6E6FA, #D8BFD8);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-header h1 {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    padding-right: 40px;
+    border: 2px solid #e1e1e1;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.form-group input:focus {
+    border-color: #9370DB;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(147, 112, 219, 0.2);
+}
+
+.form-group label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    font-size: 16px;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 8px;
+    font-size: 12px;
+    background: linear-gradient(135deg, #E6E6FA, #D8BFD8);
+    padding: 0 4px;
+    color: #663399;
+}
+
+.user-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    pointer-events: none;
+}
+
+.login-button, .facebook-login, .google-login, .twitter-login {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.login-button {
+    background: #9370DB;
+    color: white;
+}
+
+.facebook-login {
+    background: #1877F2;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.google-login {
+    background: white;
+    color: #757575;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.twitter-login {
+    background: #1DA1F2;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.login-button:hover {
+    background: #663399;
+    transform: translateY(-2px);
+}
+
+.facebook-login:hover {
+    background: #1664D9;
+    transform: translateY(-2px);
+}
+
+.google-login:hover {
+    background: #f5f5f5;
+    transform: translateY(-2px);
+}
+
+.twitter-login:hover {
+    background: #1a8cd8;
+    transform: translateY(-2px);
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.forgot-password a {
+    color: #663399;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e1e1e1;
+}
+
+.register-link a {
+    color: #663399;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 14px;
+    color: #666;
+}
+
+.remember-me input[type="checkbox"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.separator span {
+    padding: 0 10px;
+    color: #666;
+    font-size: 14px;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+</style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="30" stroke="#9370DB" stroke-width="4" fill="none"/>
+                <circle cx="32" cy="24" r="10" fill="#9370DB"/>
+                <path d="M32 38C22 38 14 46 14 54H50C50 46 42 38 32 38Z" fill="#9370DB"/>
+            </svg>
+            <h1>Welcome to Arlene</h1>
+            <p>Please sign in to continue</p>
+        </div>
+        <form id="loginForm">
+            <div class="form-group">
+                <input type="text" id="username" placeholder=" " required>
+                <label for="username">Username</label>
+                <div class="user-icon">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="6" r="4" stroke="#666666" stroke-width="2"/>
+                        <path d="M2 18C2 14.6863 4.68629 12 8 12H12C15.3137 12 18 14.6863 18 18" stroke="#666666" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" placeholder=" " required>
+                <label for="password">Your Password</label>
+                <div class="user-icon">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="8" width="14" height="10" rx="2" stroke="#666666" stroke-width="2"/>
+                        <path d="M7 8V6C7 3.79086 8.79086 2 11 2V2C13.2091 2 15 3.79086 15 6V8" stroke="#666666" stroke-width="2"/>
+                        <circle cx="10" cy="13" r="2" fill="#666666"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="remember-me">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">Remember me</label>
+            </div>
+            <button type="submit" class="login-button">LOGIN</button>
+            
+            <div class="separator">
+                <span>OR</span>
+            </div>
+            
+            <button type="button" class="facebook-login" onclick="loginWithFacebook()">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="#ffffff">
+                    <path d="M20 10C20 4.48 15.52 0 10 0C4.48 0 0 4.48 0 10C0 14.84 3.44 18.87 8 19.8V13H6V10H8V7.5C8 5.57 9.57 4 11.5 4H14V7H12C11.45 7 11 7.45 11 8V10H14V13H11V19.95C16.05 19.45 20 15.19 20 10Z"/>
+                </svg>
+                Continue with Facebook
+            </button>
+
+            <button type="button" class="google-login" onclick="loginWithGoogle()">
+                <svg width="20" height="20" viewBox="0 0 20 20">
+                    <path d="M19.6 10.2C19.6 9.5 19.5 8.8 19.4 8.2H10V12.1H15.4C15.1 13.3 14.4 14.3 13.3 15V17.5H16.6C18.5 15.8 19.6 13.3 19.6 10.2Z" fill="#4285F4"/>
+                    <path d="M10 20C12.7 20 14.9 19.1 16.6 17.5L13.3 15C12.4 15.6 11.3 16 10 16C7.4 16 5.2 14.3 4.4 11.9H1V14.5C2.7 17.8 6.1 20 10 20Z" fill="#34A853"/>
+                    <path d="M4.4 11.9C4.2 11.3 4 10.7 4 10C4 9.3 4.2 8.7 4.4 8.1V5.5H1C0.4 6.8 0 8.3 0 10C0 11.7 0.4 13.2 1 14.5L4.4 11.9Z" fill="#FBBC05"/>
+                    <path d="M10 4C11.5 4 12.8 4.5 13.8 5.4L16.7 2.6C14.9 1 12.7 0 10 0C6.1 0 2.7 2.2 1 5.5L4.4 8.1C5.2 5.7 7.4 4 10 4Z" fill="#EA4335"/>
+                </svg>
+                Continue with Google
+            </button>
+
+            <button type="button" class="twitter-login" onclick="loginWithTwitter()">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="#ffffff">
+                    <path d="M19.2 4.8c-.7.3-1.4.5-2.2.6.8-.5 1.4-1.2 1.7-2.1-.8.4-1.6.7-2.4.9-.7-.8-1.7-1.2-2.8-1.2-2.1 0-3.8 1.7-3.8 3.8 0 .3 0 .6.1.9C6.4 7.4 3.8 5.9 2 3.5c-.3.6-.5 1.2-.5 1.9 0 1.3.7 2.5 1.7 3.1-.6 0-1.2-.2-1.7-.5v.1c0 1.8 1.3 3.3 3 3.7-.3.1-.6.1-1 .1-.2 0-.5 0-.7-.1.5 1.5 1.9 2.6 3.5 2.6-1.3 1-2.9 1.6-4.7 1.6-.3 0-.6 0-.9-.1 1.7 1.1 3.6 1.7 5.7 1.7 6.8 0 10.5-5.6 10.5-10.5v-.5c.7-.5 1.3-1.2 1.8-2z"/>
+                </svg>
+                Continue with Twitter
+            </button>
+        </form>
+        <div class="forgot-password">
+            <a href="https://example.com/reset-password">Forgot Password?</a>
+        </div>
+        <div class="register-link">
+            <span>Don't have an account? </span>
+            <a href="https://example.com/register">Sign up</a>
+        </div>
+    </div>
+
+<script>
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const remember = document.getElementById('remember').checked;
+    
+    console.log('Login attempt:', { username, password, remember });
+    
+    if (username && password) {
+        setTimeout(() => {
+            alert('Login successful!');
+        }, 1000);
+    } else {
+        alert('Please fill in all fields');
+    }
+});
+
+function loginWithFacebook() {
+    console.log('Facebook login initiated');
+    alert('Facebook login feature would be implemented here');
+}
+
+function loginWithGoogle() {
+    console.log('Google login initiated');
+    alert('Google login feature would be implemented here');
+}
+
+function loginWithTwitter() {
+    console.log('Twitter login initiated');
+    alert('Twitter login feature would be implemented here');
+}
+
+document.querySelectorAll('.form-group input').forEach(input => {
+    input.addEventListener('focus', (e) => {
+        e.target.parentNode.classList.add('focused');
+    });
+    
+    input.addEventListener('blur', (e) => {
+        if (!e.target.value) {
+            e.target.parentNode.classList.remove('focused');
+        }
+    });
+});
+</script>
+</body></html>
